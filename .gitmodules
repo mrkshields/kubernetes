@@ -1,0 +1,3 @@
+[submodule "octoprint"]
+	path = octoprint
+	url = git@github.com:laebshade/octoprint-helm-chart.git
