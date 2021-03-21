@@ -1,0 +1,18 @@
+---
+apiVersion: app.kubeserial.com/v1alpha1
+kind: KubeSerial
+metadata:
+  name: ender3v2
+  namespace: kubeserial
+spec:
+  devices:
+    - name:       "ender3v2"
+      idVendor:   "1a86"
+      idProduct:  "7523"
+      manager:    "octoprint"
+      subsystem:  "tty"
+  ingress:
+    enabled: true
+    domain: ".otakuneko.net"
+    annotations:
+      kubernetes.io/ingress.class: traefik
