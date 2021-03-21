@@ -1,3 +1,6 @@
 [submodule "octoprint"]
 	path = octoprint
 	url = git@github.com:laebshade/octoprint-helm-chart.git
+[submodule "charts/k8s-at-home/charts"]
+	path = charts/k8s-at-home/charts
+	url = git@github.com:laebshade/charts.git
