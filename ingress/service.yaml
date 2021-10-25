@@ -1,22 +1,28 @@
 ---
+# Source: https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.43.0/deploy/static/provider/baremetal/deploy.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: ingress
+  annotations:
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/component: controller
+  name: ingress-nginx-controller
   namespace: ingress
 spec:
-  selector:
-    name: nginx-ingress-microk8s
   type: LoadBalancer
-  # loadBalancerIP is optional. MetalLB will automatically allocate an IP 
-  # from its pool if not specified. You can also specify one manually.
-  # loadBalancerIP: x.y.z.a
+  loadBalancerIP: 192.168.87.254
   ports:
     - name: http
-      protocol: TCP
       port: 80
-      targetPort: 80
-    - name: https
       protocol: TCP
+      targetPort: http
+    - name: https
       port: 443
-      targetPort: 443
+      protocol: TCP
+      targetPort: https
+  selector:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/component: controller
