@@ -3023,7 +3023,8 @@ spec:
                   app.kubernetes.io/part-of: argocd
               topologyKey: kubernetes.io/hostname
             weight: 5
-      nodeName: allanon
+      nodeSelector:
+        kubernetes.io/arch: amd64
       containers:
       - command:
         - /shared/argocd-dex
@@ -3097,7 +3098,8 @@ spec:
                   app.kubernetes.io/part-of: argocd
               topologyKey: kubernetes.io/hostname
             weight: 5
-      nodeName: allanon
+      nodeSelector:
+        kubernetes.io/arch: amd64
       containers:
       - args:
         - --save
@@ -3147,6 +3149,8 @@ spec:
               topologyKey: kubernetes.io/hostname
             weight: 5
       automountServiceAccountToken: false
+      nodeSelector:
+        kubernetes.io/arch: amd64
       containers:
       - command:
         - entrypoint.sh
@@ -3333,7 +3337,8 @@ spec:
                   app.kubernetes.io/part-of: argocd
               topologyKey: kubernetes.io/hostname
             weight: 5
-      nodeName: allanon
+      nodeSelector:
+        kubernetes.io/arch: amd64
       containers:
       - command:
         - argocd-server
@@ -3578,7 +3583,8 @@ spec:
                   app.kubernetes.io/part-of: argocd
               topologyKey: kubernetes.io/hostname
             weight: 5
-      nodeName: allanon
+      nodeSelector:
+        kubernetes.io/arch: amd64
       containers:
       - command:
         - argocd-application-controller
