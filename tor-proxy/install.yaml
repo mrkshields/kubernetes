@@ -19,6 +19,13 @@ spec:
         image: jess/tor-proxy:latest
         ports:
         - containerPort: 8000
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "750m"
 ---
 apiVersion: v1
 kind: Service
