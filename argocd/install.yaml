@@ -3597,6 +3597,8 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: self-signed-cluster-issuer
   labels:
     app.kubernetes.io/component: server
     app.kubernetes.io/name: argocd-server
