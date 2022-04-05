@@ -1,0 +1,21 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging
+spec:
+  acme:
+    email: stripes-thud0y@icloud.com
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-staging-issuer-account-key
+    solvers:
+      - dns01:
+          cloudDNS:
+            project: shields-home
+            serviceAccountSecretRef:
+              name: clouddns-dns01-solver-svc-acct
+              key: key.json
+        selector:
+          dnsNames:
+            - 'otakuneko.net'
+            - '*.otakuneko.net'
