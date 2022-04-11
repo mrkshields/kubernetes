@@ -50,7 +50,7 @@ spec:
       serviceAccountName: external-mdns
       containers:
       - name: external-mdns
-        image: blakec/external-mdns:0.3.0
+        image: blakec/external-mdns:0.4.0
         args:
         - -source=ingress
         - -source=service
