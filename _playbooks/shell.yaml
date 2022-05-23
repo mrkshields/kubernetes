@@ -1,0 +1,14 @@
+---
+- become: 'yes'
+  become_method: sudo
+  become_user: root
+  hosts: k8s
+  tasks:
+    - apt:
+        name: fish
+        state: present
+      name: ensure fish shell is installed
+    - ansible.builtin.command: chsh --shell /usr/bin/fish root
+      name: Set root login shell
+    - ansible.builtin.command: chsh --shell /usr/bin/fish {{ ansible_env.USER }}
+      name: Set user login shell
