@@ -1,0 +1,4 @@
+#!/bin/bash
+set -euxo pipefail
+microk8s kubectl drain $(uname -n) --ignore-daemonsets=true
+reboot
