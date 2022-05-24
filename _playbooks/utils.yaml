@@ -5,8 +5,5 @@
   hosts: k8s
   tasks:
     - apt:
-        name: fish
-        state: present
-    - apt:
-        name: mosh
+        name: most
         state: present
