@@ -1,0 +1,23 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/component: argo-rollouts-dashboard
+    app.kubernetes.io/instance: argocd
+    app.kubernetes.io/name: argo-rollouts-dashboard
+    app.kubernetes.io/part-of: argo-rollouts
+  name: rollouts
+  namespace: argocd
+spec:
+  allocateLoadBalancerNodePorts: true
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+    - port: 80
+      targetPort: 3100
+  selector:
+    app.kubernetes.io/name: argo-rollouts-dashboard
+  type: LoadBalancer
