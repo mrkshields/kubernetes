@@ -5,8 +5,6 @@
   hosts: lan
   tasks:
     - apt:
-        name: fish
-        state: present
-    - apt:
-        name: mosh
-        state: present
+        upgrade: 'yes'
+        update_cache: 'yes'
+        cache_valid_time: 86400
