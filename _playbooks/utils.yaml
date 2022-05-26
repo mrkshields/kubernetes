@@ -6,4 +6,3 @@
   tasks:
     - apt:
         name: most
-        state: present

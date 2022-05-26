@@ -6,25 +6,17 @@
   tasks:
     - apt:
         name: xserver-xorg
-        state: present
     - apt:
         name: xinit
-        state: present
     - apt:
         name: x11-xserver-utils
-        state: present
     - apt:
         name: chromium-browser
-        state: present
     - apt:
         name: matchbox-window-manager
-        state: present
     - apt:
         name: xautomation
-        state: present
     - apt:
         name: unclutter
-        state: present
     - apt:
         name: fonts-noto-color-emoji
-        state: present

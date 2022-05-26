@@ -6,7 +6,5 @@
   tasks:
     - apt:
         name: fish
-        state: present
     - apt:
         name: mosh
-        state: present
