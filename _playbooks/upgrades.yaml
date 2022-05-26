@@ -5,6 +5,6 @@
   hosts: lan
   tasks:
     - apt:
-        upgrade: 'yes'
-        update_cache: 'yes'
         cache_valid_time: 86400
+        update_cache: 'yes'
+        upgrade: 'yes'
