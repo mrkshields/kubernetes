@@ -9,12 +9,6 @@ spec:
     - name: homebridge-ui
       port: 80
       targetPort: homebridge-ui
-    - name: homebridge
-      port: 51827
-      targetPort: homebridge
-    - name: homebridge-2
-      port: 5353
-      targetPort: homebridge-2
   selector:
     app: homebridge
   type: LoadBalancer

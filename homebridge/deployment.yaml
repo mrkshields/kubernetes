@@ -29,30 +29,15 @@ spec:
     spec:
       containers:
         - env:
-            - name: tz
+            - name: TZ
               value: America/New_York
-            - name: PUID
+            - name: ENABLE_AVAHI
               value: '0'
-            - name: PGID
-              value: '0'
-            - name: HOMEBRIDGE_INSECURE
-              value: '1'
-            - name: TERMINATE_ON_ERROR
-              value: '1'
-            - name: HOMEBRIDGE_CONFIG_UI
-              value: '1'
-          image: marvinmarvin/docker-k8s-homebridge
-          imagePullPolicy: Always
+          image: oznu/homebridge:2023-01-08
           name: homebridge
           ports:
-            - containerPort: 8080
+            - containerPort: 8581
               name: homebridge-ui
-              protocol: TCP
-            - containerPort: 51827
-              name: homebridge
-              protocol: TCP
-            - containerPort: 5353
-              name: homebridge-2
               protocol: TCP
           resources:
             limits:
