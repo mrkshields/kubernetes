@@ -61,8 +61,6 @@ spec:
               readOnly: false
       dnsPolicy: ClusterFirst
       hostNetwork: true
-      nodeSelector:
-        location: lan
       restartPolicy: Always
       schedulerName: default-scheduler
       terminationGracePeriodSeconds: 30
