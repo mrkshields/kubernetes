@@ -55,17 +55,8 @@ spec:
           securityContext:
             privileged: true
             procMount: Default
-          volumeMounts:
-            - mountPath: /homebridge
-              name: k8s-cfg-homebridge
-              readOnly: false
       dnsPolicy: ClusterFirst
       hostNetwork: true
       restartPolicy: Always
       schedulerName: default-scheduler
       terminationGracePeriodSeconds: 30
-      volumes:
-        - hostPath:
-            path: /root/k8s-cfg/homebridge
-            type: Directory
-          name: k8s-cfg-homebridge
