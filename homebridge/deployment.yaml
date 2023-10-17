@@ -35,10 +35,19 @@ spec:
               value: '0'
             - name: PGID
               value: '0'
+            - name: HOMEBRIDGE_INSECURE
+              value: '1'
+            - name: TERMINATE_ON_ERROR
+              value: '1'
+            - name: HOMEBRIDGE_CONFIG_UI
+              value: '1'
           image: marvinmarvin/docker-k8s-homebridge
           imagePullPolicy: Always
           name: homebridge
           ports:
+            - containerPort: 8080
+              name: homebridge-ui
+              protocol: TCP
             - containerPort: 51827
               name: homebridge
               protocol: TCP

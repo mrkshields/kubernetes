@@ -6,6 +6,9 @@ metadata:
   name: homebridge
 spec:
   ports:
+    - name: homebridge-ui
+      port: 80
+      targetPort: homebridge-ui
     - name: homebridge
       port: 51827
       targetPort: homebridge
