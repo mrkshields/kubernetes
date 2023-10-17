@@ -4,6 +4,3 @@
 [submodule "charts/k8s-at-home/charts"]
 	path = charts/k8s-at-home/charts
 	url = git@github.com:laebshade/charts.git
-[submodule "homebridge"]
-	path = homebridge
-	url = https://github.com/abarruda/homebridge.git
