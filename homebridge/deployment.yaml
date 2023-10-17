@@ -28,30 +28,37 @@ spec:
       name: homebridge
     spec:
       containers:
-      - env:
-        - name: tz
-          value: America/New_York
-        - name: PUID
-          value: "0"
-        - name: PGID
-          value: "0"
-        image: marvinmarvin/docker-k8s-homebridge
-        imagePullPolicy: Always
-        name: homebridge
-        ports:
-        - containerPort: 51827
+        - env:
+            - name: tz
+              value: America/New_York
+            - name: PUID
+              value: '0'
+            - name: PGID
+              value: '0'
+          image: marvinmarvin/docker-k8s-homebridge
+          imagePullPolicy: Always
           name: homebridge
-          protocol: TCP
-        - containerPort: 5353
-          name: homebridge-2
-          protocol: TCP
-        securityContext:
-          privileged: true
-          procMount: Default
-        volumeMounts:
-        - mountPath: /homebridge
-          name: k8s-cfg-homebridge
-          readOnly: false
+          ports:
+            - containerPort: 51827
+              name: homebridge
+              protocol: TCP
+            - containerPort: 5353
+              name: homebridge-2
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 500m
+              memory: 500Mi
+            requests:
+              cpu: 500m
+              memory: 500Mi
+          securityContext:
+            privileged: true
+            procMount: Default
+          volumeMounts:
+            - mountPath: /homebridge
+              name: k8s-cfg-homebridge
+              readOnly: false
       dnsPolicy: ClusterFirst
       hostNetwork: true
       nodeSelector:
@@ -60,7 +67,7 @@ spec:
       schedulerName: default-scheduler
       terminationGracePeriodSeconds: 30
       volumes:
-      - hostPath:
-          path: /root/k8s-cfg/homebridge
-          type: Directory
-        name: k8s-cfg-homebridge
+        - hostPath:
+            path: /root/k8s-cfg/homebridge
+            type: Directory
+          name: k8s-cfg-homebridge
