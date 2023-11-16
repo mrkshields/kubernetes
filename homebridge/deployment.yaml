@@ -34,6 +34,7 @@ spec:
             - name: ENABLE_AVAHI
               value: '0'
           image: homebridge/homebridge:latest
+          imagePullPolicy: Always
           name: homebridge
           ports:
             - containerPort: 8581
