@@ -33,7 +33,7 @@ spec:
               value: America/New_York
             - name: ENABLE_AVAHI
               value: '0'
-          image: oznu/homebridge:2023-01-08
+          image: homebridge/homebridge:latest
           name: homebridge
           ports:
             - containerPort: 8581
@@ -41,16 +41,24 @@ spec:
               protocol: TCP
           resources:
             limits:
-              cpu: 500m
-              memory: 500Mi
+              cpu: 2000m
+              memory: 1000Mi
             requests:
               cpu: 500m
               memory: 500Mi
           securityContext:
             privileged: true
             procMount: Default
+          volumeMounts:
+            - mountPath: /
+              name: homebridge
       dnsPolicy: ClusterFirst
       hostNetwork: true
       restartPolicy: Always
       schedulerName: default-scheduler
       terminationGracePeriodSeconds: 30
+      volumes:
+        - name: homebridge
+          hostPath:
+            path: /homebridge
+            type: Directory
