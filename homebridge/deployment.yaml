@@ -40,6 +40,9 @@ spec:
             - containerPort: 8581
               name: homebridge-ui
               protocol: TCP
+          readinessProbe:
+            tcpSocket:
+              port: homebridge-ui
           resources:
             limits:
               cpu: 2000m
