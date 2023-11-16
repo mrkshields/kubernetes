@@ -60,5 +60,5 @@ spec:
       terminationGracePeriodSeconds: 30
       volumes:
         - name: homebridge
-          PersistentVolumeClaim:
+          persistentVolumeClaim:
             claimName: homebridge
