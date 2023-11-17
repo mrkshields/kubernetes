@@ -33,9 +33,13 @@ spec:
             requests:
               cpu: 500m
               memory: 500Mi
+          securityContext:
+            privileged: true
+            procMount: Default
           volumeMounts:
             - mountPath: /config
               name: homeassistant
+      hostNetwork: true
       volumes:
         - name: homeassistant
           persistentVolumeClaim:
