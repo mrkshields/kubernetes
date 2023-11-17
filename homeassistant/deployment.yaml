@@ -35,9 +35,8 @@ spec:
               memory: 500Mi
           volumeMounts:
             - mountPath: /config
-              name: ha-storage
+              name: homeassistant
       volumes:
-        - name: ha-storage
-          nfs:
-            path: /swarm/harmony/homeassistant/ha
-            server: mnemosyne.arkane-systems.lan
+        - name: homeassistant
+          persistentVolumeClaim:
+            claimName: homeassistant
