@@ -1,0 +1,43 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: homeassistant
+  name: homeassistant
+  namespace: homeassistant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: homeassistant
+  template:
+    metadata:
+      labels:
+        app: homeassistant
+    spec:
+      containers:
+        - image: homeassistant/home-assistant:latest
+          name: home-assistant
+          ports:
+            - containerPort: 8123
+              name: http
+              protocol: TCP
+          readinessProbe:
+            tcpSocket:
+              port: http
+          resources:
+            limits:
+              cpu: '1'
+              memory: 1000Mi
+            requests:
+              cpu: 500m
+              memory: 500Mi
+          volumeMounts:
+            - mountPath: /config
+              name: ha-storage
+      volumes:
+        - name: ha-storage
+          nfs:
+            path: /swarm/harmony/homeassistant/ha
+            server: mnemosyne.arkane-systems.lan
