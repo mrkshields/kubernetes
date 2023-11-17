@@ -56,11 +56,7 @@ spec:
           volumeMounts:
             - name: homebridge
               mountPath: /homebridge
-      dnsPolicy: ClusterFirst
       hostNetwork: true
-      restartPolicy: Always
-      schedulerName: default-scheduler
-      terminationGracePeriodSeconds: 30
       volumes:
         - name: homebridge
           persistentVolumeClaim:
