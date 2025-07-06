@@ -6,5 +6,7 @@ resources:
 
 namespace: argocd
 
-commonLabels:
-  app.kubernetes.io/part-of: argocd
+labels:
+- includeSelectors: true
+  pairs:
+    app.kubernetes.io/part-of: argocd
