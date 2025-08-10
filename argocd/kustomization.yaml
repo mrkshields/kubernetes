@@ -6,7 +6,16 @@ resources:
 
 namespace: argocd
 
-labels:
-- includeSelectors: true
-  pairs:
-    app.kubernetes.io/part-of: argocd
+patches:
+- target:
+    kind: Service
+    name: argocd-server
+    namespace: argocd
+  patch: |-
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: argocd-server
+      namespace: argocd
+    spec:
+      type: LoadBalancer
